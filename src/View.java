@@ -56,7 +56,7 @@ public class View {
 		// ActionListenerit
 
 		saveasButton.addActionListener((ActionEvent e) -> {
-			presenter.saveAs();
+			presenter.saveAs(outputField.getText());
 		});
 
 		clearButton.addActionListener((ActionEvent e) -> {

@@ -18,7 +18,8 @@ public class Presenter {
 		this.model = model;
 	}
 
-	   public void saveAs() {
+	   public void saveAs(String textArea) {
+		   model.setInputField(textArea);
 		      FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("Text File", "txt");
 		      final JFileChooser saveAsFileChooser = new JFileChooser();
 		      saveAsFileChooser.setCurrentDirectory(new File("."));
@@ -41,7 +42,7 @@ public class Presenter {
 		         outFile = new BufferedWriter(new FileWriter(file));
 
 		         //textArea.write(outFile)
-		         //model.getInputField();
+		         outFile.write(model.getInputField());
 
 		      } catch (IOException ex) {
 		         ex.printStackTrace();
