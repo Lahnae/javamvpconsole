@@ -21,10 +21,12 @@ public class Presenter {
 	   public void saveAs() {
 		      FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("Text File", "txt");
 		      final JFileChooser saveAsFileChooser = new JFileChooser();
+		      saveAsFileChooser.setCurrentDirectory(new File("."));
 		      saveAsFileChooser.setApproveButtonText("Save");
 		      saveAsFileChooser.setFileFilter(extensionFilter);
-		      int actionDialog = JFileChooser.SAVE_DIALOG;
+		      int actionDialog = saveAsFileChooser.showSaveDialog(saveAsFileChooser);
 		      if (actionDialog != JFileChooser.APPROVE_OPTION) {
+		    	  System.out.println("Error: " + JFileChooser.APPROVE_OPTION);
 		         return;
 		      }
 
@@ -38,7 +40,8 @@ public class Presenter {
 		      try {
 		         outFile = new BufferedWriter(new FileWriter(file));
 
-		         //textArea.write(outFile);
+		         //textArea.write(outFile)
+		         //model.getInputField();
 
 		      } catch (IOException ex) {
 		         ex.printStackTrace();

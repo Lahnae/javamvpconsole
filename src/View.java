@@ -31,33 +31,37 @@ public class View {
 
 		// JFrame
 		frame = new JFrame("Swing CommandLine");
-		
-		//ScrollPane
+
+		// ScrollPane
 		scrollPane = new JScrollPane(outputField);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		
+
 		// Labels
-	
+
 		commandLabel = new JLabel("Command:");
-		
+
 		// Fields
-		
+
 		outputField = new JTextArea(20, 45);
 		outputField.setEditable(false);
 		commandinputField = new JTextField(30);
-		
+
 		// Buttons
-		
+
 		clearButton = new JButton("Clear");
 		commandButton = new JButton("Command");
 		saveasButton = new JButton("Save As..");
 
 		// ActionListenerit
 
-		 clearButton.addActionListener((ActionEvent e) -> {
-		  outputField.setText("");}
-		 );
+		saveasButton.addActionListener((ActionEvent e) -> {
+			presenter.saveAs();
+		});
+
+		clearButton.addActionListener((ActionEvent e) -> {
+			outputField.setText("");
+		});
 
 		commandButton.addActionListener((ActionEvent e) -> {
 			presenter.cmdcommand(commandinputField.getText());
@@ -68,7 +72,7 @@ public class View {
 		Box topBox = Box.createHorizontalBox();
 		topBox.add(outputField);
 		topBox.add(Box.createHorizontalStrut(5));
-		topBox.add(scrollPane,BorderLayout.CENTER);
+		topBox.add(scrollPane, BorderLayout.CENTER);
 		topBox.add(Box.createHorizontalStrut(5));
 
 		// CommandBox Layouts
@@ -92,8 +96,8 @@ public class View {
 		frame.setLocationRelativeTo(null);
 	}
 
-	//Set presenter
-	
+	// Set presenter
+
 	public void setPresenter(Presenter pres) {
 		presenter = pres;
 	}

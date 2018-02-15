@@ -1,20 +1,20 @@
 public class Model {
-    //private String password;
+    private String inputField;
     private String cmdcommand;
     
     public Model() {
-        //password = "password"; //just set a default password.
+        inputField = null;
         cmdcommand = null;
     }
-    /*
-    public void setPassword(String pass) {
-        password = pass;
+    
+    public void setInputField(String input) {
+        inputField = input;
     }
     
-    public String getPassword() {
-        return password;
+    public String getInputField() {
+        return inputField;
     }
-    */
+    
     public void setCmdcommand(String command){
     	cmdcommand = command;
     }
